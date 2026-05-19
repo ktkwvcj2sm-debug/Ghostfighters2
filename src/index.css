@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom Tactical Theme Styles */
+body {
+  background-color: #131313;
+  color: #e5e2e1;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Scanline HUD lines overlay */
+.scanline-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+  background-size: 100% 4px;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Warning hazard stripes */
+.hazard-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    #fe6b00,
+    #fe6b00 8px,
+    #131313 8px,
+    #131313 16px
+  );
+}
+
+.hazard-stripes-green {
+  background: repeating-linear-gradient(
+    -45deg,
+    #32ff00,
+    #32ff00 8px,
+    #131313 8px,
+    #131313 16px
+  );
+}
+
+/* Bioluminescent glows */
+.ecto-glow-green {
+  filter: drop-shadow(0 0 10px rgba(50, 255, 0, 0.45));
+}
+
+.ecto-glow-orange {
+  filter: drop-shadow(0 0 10px rgba(254, 107, 0, 0.4));
+}
+
+.ecto-glow-red {
+  filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.5));
+}
+
+/* Glassmorphism panel styling */
+.glass-panel {
+  background: rgba(20, 19, 19, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(133, 150, 124, 0.15);
+}
+
+/* Radar rotation sweep */
+@keyframes radar-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.radar-sweep {
+  background: conic-gradient(from 0deg at 50% 50%, transparent 60%, rgba(50, 255, 0, 0.05) 80%, rgba(50, 255, 0, 0.35) 95%, rgba(50, 255, 0, 0.7) 100%);
+  animation: radar-spin 4s linear infinite;
+  transform-origin: center;
+}
+
+/* Grid overlay background */
+.grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(133, 150, 124, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(133, 150, 124, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Glitch animation for cool effects */
+@keyframes glitch {
+  0% { transform: skew(0deg); }
+  10% { transform: skew(-1deg); }
+  20% { transform: skew(1deg); }
+  35% { transform: none; }
+  100% { transform: none; }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.4s infinite;
+}
+
+/* Spiral flying and bobbing animation for dashboard logo and ghosts */
+@keyframes spiral-bob {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  12% {
+    transform: translate(16px, -12px) rotate(6deg) scale(1.04);
+  }
+  25% {
+    transform: translate(28px, 6px) rotate(12deg) scale(1.08);
+  }
+  37% {
+    transform: translate(20px, 24px) rotate(14deg) scale(1.1);
+  }
+  50% {
+    transform: translate(-6px, 32px) rotate(8deg) scale(1.06);
+  }
+  62% {
+    transform: translate(-28px, 16px) rotate(-2deg) scale(0.96);
+  }
+  75% {
+    transform: translate(-32px, -12px) rotate(-10deg) scale(0.92);
+  }
+  87% {
+    transform: translate(-14px, -24px) rotate(-8deg) scale(0.95);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+}
+
+.animate-spiral-bob {
+  animation: spiral-bob 8s ease-in-out infinite;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #131313;
+}
+::-webkit-scrollbar-thumb {
+  background: #353534;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #32ff00;
+}

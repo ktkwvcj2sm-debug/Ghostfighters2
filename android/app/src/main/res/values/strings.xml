@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GHOSTFAITERS</string>
+    <string name="title_activity_main">GHOSTFAITERS</string>
+    <string name="package_name">com.dan.ghost</string>
+    <string name="custom_url_scheme">com.dan.ghost</string>
+</resources>
